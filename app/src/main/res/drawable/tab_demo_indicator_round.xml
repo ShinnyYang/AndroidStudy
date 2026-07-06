@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:width="18dp"
+        android:height="5dp"
+        android:gravity="center">
+        <shape>
+            <corners android:radius="999dp" />
+            <solid android:color="@color/tab_demo_accent" />
+        </shape>
+    </item>
+</layer-list>

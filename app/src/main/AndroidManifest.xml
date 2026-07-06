@@ -50,6 +50,9 @@
             android:name=".activity.ShapeAbleViewActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activity.TabLayoutActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".anim.ConstraintLayoutActivity"
             android:exported="false"
             android:screenOrientation="portrait" />

@@ -11,6 +11,7 @@ import org.ninetripods.mq.study.activity.CommonFragmentsActivity
 import org.ninetripods.mq.study.activity.RoundImageActivity
 import org.ninetripods.mq.study.activity.ShadowActivity
 import org.ninetripods.mq.study.activity.ShapeAbleViewActivity
+import org.ninetripods.mq.study.activity.TabLayoutActivity
 import org.ninetripods.mq.study.activity.XFerModeActivity
 import org.ninetripods.mq.study.fragment.ColorMatrixFragment
 import org.ninetripods.mq.study.fragment.Inspector3DModeFragment
@@ -50,6 +51,7 @@ class ViewFragment : BaseFragment() {
         // 准备数据
         val dataList = mutableListOf<ViewItem>().apply {
             add(ViewItem("图片设置圆角矩形、圆形等", RoundImageActivity::class.java))
+            add(ViewItem("TabLayout", TabLayoutActivity::class.java))
             add(ViewItem("ShapeableImageView", ShapeAbleViewActivity::class.java))
             add(ViewItem("设置阴影", ShadowActivity::class.java))
             add(ViewItem("PorterDuffXfermode", XFerModeActivity::class.java))
