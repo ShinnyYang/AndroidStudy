@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.widget.TooltipCompat
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -189,6 +190,7 @@ class TabLayoutActivity : BaseActivity() {
         }
 
         applySectionTabSizing(tabLayout, config.kind)
+        disableTabLongPressHints(tabLayout)
         updateTabSelection(tabLayout)
 
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
@@ -282,6 +284,17 @@ class TabLayoutActivity : BaseActivity() {
             textView.textSize = if (selected) 16f else 14f
             textView.setTypeface(null, if (selected) Typeface.BOLD else Typeface.NORMAL)
             textView.setTextColor(if (selected) selectedColor else unselectedColor)
+        }
+    }
+
+    private fun disableTabLongPressHints(tabLayout: TabLayout) {
+        val slidingTabIndicator = tabLayout.getChildAt(0) as? ViewGroup ?: return
+        for (index in 0 until slidingTabIndicator.childCount) {
+            val tabView = slidingTabIndicator.getChildAt(index)
+            tabView.contentDescription = null
+            tabView.isLongClickable = false
+            TooltipCompat.setTooltipText(tabView, null)
+            tabView.findViewById<View?>(R.id.tabText)?.contentDescription = null
         }
     }
 
