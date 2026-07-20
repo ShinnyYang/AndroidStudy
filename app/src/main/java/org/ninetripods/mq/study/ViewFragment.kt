@@ -13,6 +13,7 @@ import org.ninetripods.mq.study.activity.ShadowActivity
 import org.ninetripods.mq.study.activity.ShapeAbleViewActivity
 import org.ninetripods.mq.study.activity.TabLayoutActivity
 import org.ninetripods.mq.study.activity.XFerModeActivity
+import org.ninetripods.mq.study.anim.CLDispatcherActivity
 import org.ninetripods.mq.study.fragment.ColorMatrixFragment
 import org.ninetripods.mq.study.fragment.GradientTextDemoFragment
 import org.ninetripods.mq.study.fragment.Inspector3DModeFragment
@@ -50,6 +51,7 @@ class ViewFragment : BaseFragment() {
         recyclerView.layoutManager = GridLayoutManager(context, 2)
 
         val dataList = mutableListOf<ViewItem>().apply {
+            add(ViewItem("Constraintlayout库相关", CLDispatcherActivity::class.java))
             add(ViewItem("GradientTextView示例", CommonFragmentsActivity::class.java, TYPE_GRADIENT_TEXT))
             add(ViewItem("图片设置圆角矩形、圆形等", RoundImageActivity::class.java))
             add(ViewItem("TabLayout", TabLayoutActivity::class.java))
