@@ -1,18 +1,19 @@
 package org.ninetripods.mq.study.anim
 
-import android.annotation.SuppressLint
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import org.ninetripods.mq.study.BaseActivity
 import org.ninetripods.mq.study.R
 import org.ninetripods.mq.study.anim.fragment.ImgFilterViewFragment
 import org.ninetripods.mq.study.anim.fragment.MotionLayoutSampleFragment
+import org.ninetripods.mq.study.anim.fragment.MotionLayoutSwapFragment
 import org.ninetripods.mq.study.anim.fragment.MotionPopupDialogFragment
 import org.ninetripods.mq.study.kotlin.ktx.id
 
 const val FRAGMENT_IMG_FILTER = 0
 const val FRAGMENT_MOTION_LAYOUT_SAMPLE = 1
 const val FRAGMENT_MOTION_LAYOUT_POPUP = 2
+const val FRAGMENT_MOTION_LAYOUT_SWAP = 3
 const val KEY_CL_FRAGMENT_TYPE = "key_fragment_type"
 /**
  * ConstraintLayout系列
@@ -31,6 +32,7 @@ class ConstraintLayoutActivity : BaseActivity() {
             FRAGMENT_IMG_FILTER -> "ImageFilterView"
             FRAGMENT_MOTION_LAYOUT_SAMPLE -> "MotionLayout示例"
             FRAGMENT_MOTION_LAYOUT_POPUP -> "MotionLayout实现弹窗"
+            FRAGMENT_MOTION_LAYOUT_SWAP -> "MotionLayout交换动画"
             else -> "ImageFilterView"
         }
         initToolBar(mToolBar, titleName, true, false, TYPE_BLOG)
@@ -49,6 +51,7 @@ class ConstraintLayoutActivity : BaseActivity() {
             FRAGMENT_IMG_FILTER -> ImgFilterViewFragment()
             FRAGMENT_MOTION_LAYOUT_SAMPLE -> MotionLayoutSampleFragment()
             FRAGMENT_MOTION_LAYOUT_POPUP -> MotionPopupDialogFragment()
+            FRAGMENT_MOTION_LAYOUT_SWAP -> MotionLayoutSwapFragment()
             else -> ImgFilterViewFragment()
         }
     }

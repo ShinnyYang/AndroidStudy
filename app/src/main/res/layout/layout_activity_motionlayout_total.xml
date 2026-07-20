@@ -36,4 +36,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_motion_popup" />
+
+    <TextView
+        android:id="@+id/tv_motion_swap"
+        style="@style/btn_style_done_new"
+        android:layout_marginTop="25dp"
+        android:text="MotionLayout交换动画"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_tx_motion_sample" />
 </androidx.constraintlayout.widget.ConstraintLayout>

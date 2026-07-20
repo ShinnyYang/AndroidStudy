@@ -4,7 +4,6 @@ import android.content.Intent
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
-import androidx.constraintlayout.utils.widget.ImageFilterView
 import org.ninetripods.mq.study.BaseActivity
 import org.ninetripods.mq.study.R
 import org.ninetripods.mq.study.kotlin.ktx.id
@@ -14,6 +13,7 @@ class CLDispatcherActivity : BaseActivity() {
     private val mTvImgFilter: TextView by id(R.id.tv_img_filter)
     private val mTvMotionPopup: TextView by id(R.id.tv_motion_popup)
     private val mTvMotionSample: TextView by id(R.id.tv_tx_motion_sample)
+    private val mTvMotionSwap: TextView by id(R.id.tv_motion_swap)
 
     override fun getLayoutId(): Int = R.layout.layout_activity_motionlayout_total
 
@@ -25,6 +25,7 @@ class CLDispatcherActivity : BaseActivity() {
         mTvImgFilter.setOnClickListener(this)
         mTvMotionPopup.setOnClickListener(this)
         mTvMotionSample.setOnClickListener(this)
+        mTvMotionSwap.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -32,6 +33,7 @@ class CLDispatcherActivity : BaseActivity() {
             R.id.tv_img_filter -> jumpTargetPage(FRAGMENT_IMG_FILTER)
             R.id.tv_motion_popup -> jumpTargetPage(FRAGMENT_MOTION_LAYOUT_POPUP)
             R.id.tv_tx_motion_sample -> jumpTargetPage(FRAGMENT_MOTION_LAYOUT_SAMPLE)
+            R.id.tv_motion_swap -> jumpTargetPage(FRAGMENT_MOTION_LAYOUT_SWAP)
         }
     }
 
