@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/motion_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,32 +11,44 @@
     <!--motionDebug取值:1、NO_DEBUG 2、SHOW_ALL 3、SHOW_PATH 4、SHOW_PROGRESS-->
     <!--通过layoutDescription来描述运动场景-->
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/m_toolbar" />
+    <TextView
+        android:id="@+id/tv_page_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center"
+        android:text="点击按钮直接打开底部弹窗。"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_clk"
+        android:id="@+id/btn_show_popup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
-        android:text="点击"
+        android:text="打开弹窗"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@id/tv_page_description" />
 
     <TextView
-        android:id="@+id/ll_pop_dialog"
+        android:id="@+id/tv_popup_dialog"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="260dp"
         android:background="@color/cffd28c"
         android:gravity="center"
-        android:text="Pop Dialog"
+        android:text="MotionLayout 弹窗\n\n点击弹窗关闭"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_target" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

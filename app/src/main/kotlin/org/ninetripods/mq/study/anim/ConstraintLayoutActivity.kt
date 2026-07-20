@@ -7,10 +7,12 @@ import org.ninetripods.mq.study.BaseActivity
 import org.ninetripods.mq.study.R
 import org.ninetripods.mq.study.anim.fragment.ImgFilterViewFragment
 import org.ninetripods.mq.study.anim.fragment.MotionLayoutSampleFragment
+import org.ninetripods.mq.study.anim.fragment.MotionPopupDialogFragment
 import org.ninetripods.mq.study.kotlin.ktx.id
 
 const val FRAGMENT_IMG_FILTER = 0
 const val FRAGMENT_MOTION_LAYOUT_SAMPLE = 1
+const val FRAGMENT_MOTION_LAYOUT_POPUP = 2
 const val KEY_CL_FRAGMENT_TYPE = "key_fragment_type"
 /**
  * ConstraintLayout系列
@@ -28,6 +30,7 @@ class ConstraintLayoutActivity : BaseActivity() {
         val titleName = when (mCurPos) {
             FRAGMENT_IMG_FILTER -> "ImageFilterView"
             FRAGMENT_MOTION_LAYOUT_SAMPLE -> "MotionLayout示例"
+            FRAGMENT_MOTION_LAYOUT_POPUP -> "MotionLayout实现弹窗"
             else -> "ImageFilterView"
         }
         initToolBar(mToolBar, titleName, true, false, TYPE_BLOG)
@@ -45,6 +48,7 @@ class ConstraintLayoutActivity : BaseActivity() {
         return when (mCurPos) {
             FRAGMENT_IMG_FILTER -> ImgFilterViewFragment()
             FRAGMENT_MOTION_LAYOUT_SAMPLE -> MotionLayoutSampleFragment()
+            FRAGMENT_MOTION_LAYOUT_POPUP -> MotionPopupDialogFragment()
             else -> ImgFilterViewFragment()
         }
     }

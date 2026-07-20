@@ -12,6 +12,7 @@ import org.ninetripods.mq.study.kotlin.ktx.id
 class CLDispatcherActivity : BaseActivity() {
     private val mToolBar: Toolbar by id(R.id.toolbar)
     private val mTvImgFilter: TextView by id(R.id.tv_img_filter)
+    private val mTvMotionPopup: TextView by id(R.id.tv_motion_popup)
     private val mTvMotionSample: TextView by id(R.id.tv_tx_motion_sample)
 
     override fun getLayoutId(): Int = R.layout.layout_activity_motionlayout_total
@@ -22,12 +23,14 @@ class CLDispatcherActivity : BaseActivity() {
 
     override fun initEvents() {
         mTvImgFilter.setOnClickListener(this)
+        mTvMotionPopup.setOnClickListener(this)
         mTvMotionSample.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.tv_img_filter -> jumpTargetPage(FRAGMENT_IMG_FILTER)
+            R.id.tv_motion_popup -> jumpTargetPage(FRAGMENT_MOTION_LAYOUT_POPUP)
             R.id.tv_tx_motion_sample -> jumpTargetPage(FRAGMENT_MOTION_LAYOUT_SAMPLE)
         }
     }

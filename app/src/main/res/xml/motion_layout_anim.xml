@@ -1,74 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:motion="http://schemas.android.com/apk/res-auto">
-<!--    <StateSet>-->
-<!--        <State-->
-<!--            android:id="@+id/state1"-->
-<!--            motion:constraints="@xml/motion_layout_anim">-->
-<!--        </State>-->
-<!--        <State ></State>-->
-<!--    </StateSet>-->
-    <Transition
-        motion:constraintSetEnd="@+id/end"
-        motion:constraintSetStart="@+id/start"
-        motion:duration="1000">
-        <OnSwipe
-            motion:dragDirection="dragUp"
-            motion:onTouchUp="autoCompleteToEnd"
-            motion:touchAnchorId="@+id/ll_pop_dialog"
-            motion:touchAnchorSide="top" />
-        <!--        <KeyFrameSet>-->
-        <!--            <KeyAttribute-->
-        <!--                android:alpha="0.5"-->
-        <!--                motion:framePosition="43"-->
-        <!--                motion:motionTarget="@+id/iv_target" />-->
-        <!--        </KeyFrameSet>-->
 
-        <!--        <KeyFrameSet>-->
-        <!--            <KeyPosition-->
-        <!--                motion:framePosition="50"-->
-        <!--                motion:keyPositionType="deltaRelative"-->
-        <!--                motion:motionTarget="@id/iv_target"-->
-        <!--                motion:percentX="0.8"-->
-        <!--                motion:percentY="0.8" />-->
-        <!--        </KeyFrameSet>-->
+    <Transition
+        motion:constraintSetStart="@id/start"
+        motion:constraintSetEnd="@+id/end"
+        motion:duration="320">
+        <OnClick
+            motion:targetId="@+id/btn_show_popup"
+            motion:clickAction="transitionToEnd" />
+    </Transition>
+
+    <Transition
+        motion:constraintSetStart="@id/end"
+        motion:constraintSetEnd="@id/start"
+        motion:duration="240">
+        <OnClick
+            motion:targetId="@+id/tv_popup_dialog"
+            motion:clickAction="transitionToEnd" />
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
         <Constraint
-            android:id="@+id/ll_pop_dialog"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:rotation="0"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@+id/toolbar">
-
-            <!--自定义属性-->
-            <CustomAttribute
-                motion:attributeName="backgroundColor"
-                motion:customColorValue="#D81B60" />
-        </Constraint>
+            android:id="@+id/v_popup_scrim"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:alpha="0"
+            android:visibility="gone" />
+        <Constraint
+            android:id="@+id/tv_popup_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:translationY="260dp"
+            motion:layout_constraintBottom_toBottomOf="parent" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/ll_pop_dialog"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="200dp"
-            android:rotation="360"
+            android:id="@+id/v_popup_scrim"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:alpha="1"
+            android:visibility="visible"
+            motion:layout_constraintTop_toBottomOf="parent"
             motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent">
-            <CustomAttribute
-                motion:attributeName="backgroundColor"
-                motion:customColorValue="#9999FF" />
-        </Constraint>
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent" />
+        <Constraint
+            android:id="@+id/tv_popup_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:translationY="0dp"
+            motion:layout_constraintBottom_toBottomOf="parent" />
     </ConstraintSet>
-
-    <!--    <StateSet></StateSet>-->
-
-    <!--    <ViewTransition></ViewTransition>-->
-
 </MotionScene>

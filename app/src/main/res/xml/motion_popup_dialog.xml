@@ -9,18 +9,11 @@
         <OnClick
             motion:clickAction="toggle"
             motion:targetId="@+id/btn_clk" />
-        <!--        <KeyFrameSet>-->
-        <!--        </KeyFrameSet>-->
-        <!--        <OnSwipe-->
-        <!--            motion:dragDirection="dragEnd"-->
-        <!--            motion:touchAnchorId="@+id/btn_clk" />-->
         <OnSwipe
             motion:dragDirection="dragRight"
             motion:touchAnchorSide="right"
             motion:touchAnchorId="@xml/motion_layout_anim"
-            motion:dragScale="@integer/material_motion_duration_long_1">
-
-        </OnSwipe>
+            motion:dragScale="@integer/material_motion_duration_long_1" />
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
@@ -38,11 +31,6 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:visibility="visible"
-            motion:layout_constraintBottom_toTopOf="@+id/btn_clk">
-            <!--自定义属性-->
-            <!--            <CustomAttribute-->
-            <!--                motion:attributeName="backgroundColor"-->
-            <!--                motion:customColorValue="#D81B60" />-->
-        </Constraint>
+            motion:layout_constraintBottom_toTopOf="@+id/btn_clk" />
     </ConstraintSet>
 </MotionScene>
