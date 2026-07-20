@@ -14,6 +14,7 @@ import org.ninetripods.mq.study.activity.ShapeAbleViewActivity
 import org.ninetripods.mq.study.activity.TabLayoutActivity
 import org.ninetripods.mq.study.activity.XFerModeActivity
 import org.ninetripods.mq.study.fragment.ColorMatrixFragment
+import org.ninetripods.mq.study.fragment.GradientTextDemoFragment
 import org.ninetripods.mq.study.fragment.Inspector3DModeFragment
 import org.ninetripods.mq.study.fragment.MatrixFragment
 import org.ninetripods.mq.study.fragment.MutableContextWrapperFragment
@@ -37,6 +38,7 @@ class ViewFragment : BaseFragment() {
         const val TYPE_SET_POLY_TO_POLY = 5 //SetPolyToPoly
         const val TYPE_SET_POLY_TO_POLY2 = 6 //SetPolyToPoly
         const val TYPE_PERMISSION_REQUEST = 7 //权限申请
+        const val TYPE_GRADIENT_TEXT = 8 //GradientTextView示例
     }
     data class ViewItem(val titleName: String, val clz: Class<*>, var type: Int = TYPE_DEFAULT)
 
@@ -45,11 +47,10 @@ class ViewFragment : BaseFragment() {
     override fun getLayoutId(): Int = R.layout.fragment_view_series
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         recyclerView.layoutManager = GridLayoutManager(context, 2)
 
-        // 准备数据
         val dataList = mutableListOf<ViewItem>().apply {
+            add(ViewItem("GradientTextView示例", CommonFragmentsActivity::class.java, TYPE_GRADIENT_TEXT))
             add(ViewItem("图片设置圆角矩形、圆形等", RoundImageActivity::class.java))
             add(ViewItem("TabLayout", TabLayoutActivity::class.java))
             add(ViewItem("ShapeableImageView", ShapeAbleViewActivity::class.java))
@@ -64,9 +65,13 @@ class ViewFragment : BaseFragment() {
             add(ViewItem("权限申请弹窗", CommonFragmentsActivity::class.java, TYPE_PERMISSION_REQUEST))
         }
 
-        // 设置适配器
         val adapter = MyAdapter(dataList) { _, item ->
             when (item.type) {
+                TYPE_GRADIENT_TEXT -> {
+                    GradientTextDemoFragment::class.java.canonicalName?.let {
+                        CommonFragmentsActivity.start(requireActivity(), it, "GradientTextView示例")
+                    }
+                }
                 TYPE_PERMISSION_REQUEST -> {
                     PermissionRequestFragment::class.java.canonicalName?.let {
                         CommonFragmentsActivity.start(requireActivity(), it, "权限申请弹窗")
@@ -82,7 +87,6 @@ class ViewFragment : BaseFragment() {
                         CommonFragmentsActivity.start(requireActivity(), it, "SetPolyToPoly示例")
                     }
                 }
-
                 TYPE_COLOR_MATRIX -> {
                     ColorMatrixFragment::class.java.canonicalName?.let {
                         CommonFragmentsActivity.start(requireActivity(), it, "ColorMatrix示例")
@@ -99,7 +103,6 @@ class ViewFragment : BaseFragment() {
                     }
                 }
                 TYPE_CONTEXT_WRAPPER -> {
-                    //MutableContextWrapper示例
                     MutableContextWrapperFragment::class.java.canonicalName?.let {
                         CommonFragmentsActivity.start(requireActivity(), it, "MutableContextWrapper示例")
                     }
@@ -139,5 +142,4 @@ class ViewFragment : BaseFragment() {
             val textView: TextView = itemView.findViewById(R.id.tv_title)
         }
     }
-
 }

@@ -9,4 +9,14 @@
         <!-- format="reference"意为参考某一资源ID -->
         <attr name="right_id" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="GradientTextView">
+        <attr name="gradientOrientation" format="enum">
+            <enum name="horizontal" value="1" />
+            <enum name="vertical" value="2" />
+        </attr>
+        <attr name="gradientStartColor" format="color" />
+        <attr name="gradientCenterColor" format="color" />
+        <attr name="gradientEndColor" format="color" />
+    </declare-styleable>
 </resources>
